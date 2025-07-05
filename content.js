@@ -10,6 +10,20 @@
 console.log("Telegram Blackhole Theme: content.js loaded.");
 
 /**
+ * Toggles the 'blackhole-theme' class on the body element.
+ * @param {boolean} enable If true, adds the class; if false, removes it.
+ */
+function toggleTheme(enable) {
+  if (enable) {
+    document.body.classList.add('blackhole-theme');
+    console.log("Telegram Blackhole Theme: Theme enabled.");
+  } else {
+    document.body.classList.remove('blackhole-theme');
+    console.log("Telegram Blackhole Theme: Theme disabled.");
+  }
+}
+
+/**
  * Applies styling to elements that might be added dynamically or require
  * JavaScript-based adjustments not easily handled by CSS alone.
  * This function is kept minimal to ensure performance.
@@ -81,6 +95,19 @@ function waitForElement(selector, callback) {
 }
 
 // --- Main Execution Flow ---
+
+// Listen for messages from the extension (e.g., from the popup)
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.command === 'toggleTheme') {
+    toggleTheme(message.enable);
+  }
+});
+
+// Apply theme on initial load based on stored preference
+chrome.storage.sync.get('themeEnabled', (data) => {
+  const themeEnabled = data.themeEnabled !== false; // Default to true if not set
+  toggleTheme(themeEnabled);
+});
 
 // 1. Initial styling application after a short delay.
 // This ensures that elements present on initial page load are styled correctly.

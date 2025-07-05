@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  width: 250px;
+  padding: 10px;
+  background-color: #222;
+  color: #eee;
+}
+
+h1 {
+  font-size: 1.2em;
+  color: #00bcd4; /* A nice blue */
+}
+
+button {
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0097a7;
+}
