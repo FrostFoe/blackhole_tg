@@ -1,0 +1,279 @@
+/*
+ * Telegram Blackhole Theme
+ * styles.css
+ *
+ * This stylesheet overrides the default Telegram Web styles
+ * to create an immersive, ultra-dark "blackhole" theme.
+ * It aims for comprehensive coverage and cross-browser compatibility.
+ */
+
+/* ===== Global Overrides ===== */
+html,
+body,
+#page-container,
+#page-wrap,
+.app-container {
+  background-color: #000000 !important; /* Pure black background */
+  color: #e0e0e0; /* Light grey text for readability */
+}
+
+/* Ensure all text elements inherit the light color unless specified */
+* {
+  color: inherit;
+}
+
+/* ===== Main Layout Panels ===== */
+.Transitionable.chats-container {
+  background-color: #000000 !important; /* Pure black for the left chat list area */
+}
+
+.Transitionable.chat-container {
+  background-color: #0a0a0a !important; /* Slightly off-black for the main chat panel */
+}
+
+.chatlist {
+  background-color: #000000 !important; /* Pure black for the chat list sidebar */
+  border-right: 1px solid #1a1a1a !important; /* Subtle dark border */
+}
+
+.chat-panel {
+  background-color: #0a0a0a !important; /* Consistent with the main chat panel */
+}
+
+/* ===== Headers & Input Areas ===== */
+.header-wrap,
+.chat-panel-header,
+.Composer {
+  background-color: #1a1a1a !important; /* Dark grey background for headers and composer */
+  border-bottom: 1px solid #2a2a2a !important; /* Darker bottom border */
+  box-shadow: none !important; /* Remove any default shadows */
+}
+
+.Composer .input-message-field {
+  background-color: #0a0a0a !important; /* Very dark background for message input */
+  color: #e0e0e0 !important; /* Light text color */
+  border-radius: 10px !important; /* Rounded corners */
+  border: 1px solid #2a2a2a !important; /* Subtle dark border */
+}
+
+.Composer .input-message-field::placeholder {
+  color: #666666 !important; /* Darker grey for placeholder text */
+}
+
+/* ===== Scrollbars (Cross-Browser) ===== */
+/* Webkit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a; /* Very dark track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333; /* Dark grey thumb */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555; /* Slightly lighter on hover */
+}
+
+/* Firefox */
+html {
+  scrollbar-color: #333333 #0a0a0a; /* thumb color, track color */
+  scrollbar-width: thin; /* auto, thin, none */
+}
+
+/* ===== Chat List Items ===== */
+.chatlist .chat-item-wrap {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  background-color: #000000 !important; /* Pure black for chat items */
+}
+
+.chatlist .chat-item-wrap:hover {
+  background-color: #0a0a0a !important; /* Subtle dark grey on hover */
+}
+
+.chatlist .chat-item-wrap.active {
+  background-color: #1a1a1a !important; /* Distinct dark background for selected chat */
+}
+
+.chat-item-title,
+.chat-item-last-message,
+.chat-item-date {
+  color: #e0e0e0 !important; /* Light grey for chat item text */
+}
+
+.unread-badge {
+  background-color: #5e35b1 !important; /* Deep purple accent for unread badge */
+  color: #ffffff !important; /* White text */
+  font-weight: bold !important;
+  padding: 2px 7px !important;
+  border-radius: 10px !important;
+  font-size: 0.8em !important;
+}
+
+/* ===== Message Bubbles ===== */
+.Message .message-bubble {
+  padding: 8px 12px !important;
+  border-radius: 16px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.5 !important;
+}
+
+.Message.own .message-bubble {
+  background-color: #4b0082 !important; /* Deep indigo/purple for own messages */
+  color: #ffffff !important; /* White text */
+}
+
+.Message:not(.own) .message-bubble {
+  background-color: #1a1a1a !important; /* Dark grey for other users' messages */
+  color: #e0e0e0 !important; /* Light grey text */
+}
+
+.Message .text-content {
+  color: inherit !important; /* Ensure text content inherits color from bubble */
+}
+
+.Message a {
+  color: #8a2be2 !important; /* Bright blue-violet for hyperlinks */
+  text-decoration: underline !important;
+}
+
+.Message .message-info {
+  color: #999999 !important; /* Lighter grey for timestamps and read status */
+}
+
+/* Service messages (e.g., "User joined the group") */
+.Message.service .message-bubble {
+  background-color: transparent !important;
+  color: #999999 !important;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Forwarded messages header */
+.Message .forwarded-header {
+  color: #b0b0b0 !important;
+}
+
+/* ===== Buttons & Icons ===== */
+.Composer button,
+.Composer .btn-icon,
+.btn-primary,
+.btn-secondary {
+  background-color: #4b0082 !important; /* Deep purple accent for buttons */
+  color: #ffffff !important; /* White text/icons */
+  border-radius: 50% !important; /* Circular shape for composer buttons */
+  transition: background-color 0.2s ease !important;
+}
+
+.Composer button:hover,
+.Composer .btn-icon:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: #5e35b1 !important; /* Lighter purple on hover */
+}
+
+/* General SVG icon color adjustment for visibility */
+svg {
+  filter: brightness(0.8) invert(0.1); /* Adjust brightness and invert slightly for dark theme */
+}
+
+/* Specific icon adjustments if needed (example, adjust as per actual Telegram classes) */
+.icon-color-primary svg {
+  filter: brightness(1.5) invert(0.1); /* Make primary icons brighter */
+}
+
+/* ===== Modals & Popups ===== */
+.modal-container,
+.popup-container,
+.modal-content,
+.popup-content {
+  background-color: #1a1a1a !important; /* Dark grey background for modals/popups */
+  color: #e0e0e0 !important; /* Light text */
+  border-radius: 12px !important; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important; /* Subtle dark shadow */
+}
+
+.modal-header,
+.popup-header {
+  background-color: #2a2a2a !important; /* Slightly darker header for modals */
+  border-bottom: 1px solid #3a3a3a !important;
+  color: #e0e0e0 !important;
+}
+
+.modal-footer,
+.popup-footer {
+  background-color: #2a2a2a !important; /* Slightly darker footer for modals */
+  border-top: 1px solid #3a3a3a !important;
+}
+
+/* Input fields within modals/popups */
+.modal-container input[type="text"],
+.modal-container input[type="password"],
+.modal-container textarea {
+  background-color: #0a0a0a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #2a2a2a !important;
+  border-radius: 5px !important;
+}
+
+/* ===== Images/Media ===== */
+.Message .media-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px !important;
+}
+
+/* Profile pictures/avatars */
+.avatar-image,
+.profile-avatar {
+  border-radius: 50% !important; /* Ensure avatars are circular */
+}
+
+/* Context menus and dropdowns */
+.context-menu,
+.dropdown-menu {
+  background-color: #1a1a1a !important;
+  border: 1px solid #2a2a2a !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !important;
+}
+
+.context-menu-item,
+.dropdown-menu-item {
+  color: #e0e0e0 !important;
+  padding: 8px 12px !important;
+}
+
+.context-menu-item:hover,
+.dropdown-menu-item:hover {
+  background-color: #2a2a2a !important;
+}
+
+/* Settings panels */
+.settings-panel {
+  background-color: #0a0a0a !important;
+  color: #e0e0e0 !important;
+}
+
+.settings-panel-header {
+  background-color: #1a1a1a !important;
+  border-bottom: 1px solid #2a2a2a !important;
+}
+
+.settings-panel-section {
+  border-bottom: 1px solid #1a1a1a !important;
+}
+
+.settings-panel-label {
+  color: #b0b0b0 !important;
+}
+
+.settings-panel-value {
+  color: #e0e0e0 !important;
+}
