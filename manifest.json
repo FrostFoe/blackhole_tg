@@ -5,7 +5,7 @@
   "description": "An immersive, ultra-dark 'blackhole' theme for Telegram Web.",
   
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "popup.html"
     
   },
   "permissions": [
