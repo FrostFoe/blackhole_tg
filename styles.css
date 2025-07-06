@@ -6,10 +6,28 @@
  * to create an immersive, ultra-dark "blackhole" theme with smooth animations.
  */
 
+body.blackhole-theme {
+  --background-color: #000000;
+  --text-color: #e0e0e0;
+  --primary-color: #1a1a1a;
+  --accent-color: #5e35b1;
+  --secondary-accent-color: #4b0082;
+  --link-color: #8a2be2;
+  --link-hover-color: #9932cc;
+  --light-gray-color: #0a0a0a;
+  --medium-gray-color: #2a2a2a;
+  --dark-gray-color: #333333;
+  --light-black-color: #1a1a1a;
+  --white-color: #ffffff;
+  --black-color: #000000;
+}
+
 /* General Body and App Container */
-body, .whole, .app-container {
-  background-color: #000000 !important;
-  color: #e0e0e0 !important;
+body.blackhole-theme, 
+body.blackhole-theme .whole, 
+body.blackhole-theme .app-container {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -24,77 +42,81 @@ body.blackhole-theme-loaded {
 }
 
 /* Authentication Pages */
-#auth-pages {
-  background-color: #000000 !important;
+body.blackhole-theme #auth-pages {
+  background-color: var(--background-color) !important;
 }
 
-.auth-pages__container {
-  background-color: #0a0a0a !important;
+body.blackhole-theme .auth-pages__container {
+  background-color: var(--light-gray-color) !important;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.auth-image .sign-logo {
-  fill: #e0e0e0 !important;
+body.blackhole-theme .auth-image .sign-logo {
+  fill: var(--text-color) !important;
   transition: fill 0.3s ease;
 }
 
 /* Main Layout */
-#main-columns {
-  background-color: #000000 !important;
+body.blackhole-theme #main-columns {
+  background-color: var(--background-color) !important;
 }
 
-.sidebar-left-common, .sidebar-left, .sidebar-right {
-  background-color: #000000 !important;
-  border-color: #1a1a1a !important;
+body.blackhole-theme .sidebar-left-common, 
+body.blackhole-theme .sidebar-left, 
+body.blackhole-theme .sidebar-right {
+  background-color: var(--background-color) !important;
+  border-color: var(--light-black-color) !important;
   transition: background-color 0.3s ease;
 }
 
-#column-center {
-  background-color: #0a0a0a !important;
+body.blackhole-theme #column-center {
+  background-color: var(--light-gray-color) !important;
 }
 
-.sidebar-header {
-  background-color: #1a1a1a !important;
-  border-bottom: 1px solid #2a2a2a !important;
+body.blackhole-theme .sidebar-header {
+  background-color: var(--primary-color) !important;
+  border-bottom: 1px solid var(--medium-gray-color) !important;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Chat List */
-.chatlist-container {
-  background-color: #000000 !important;
+body.blackhole-theme .chatlist-container {
+  background-color: var(--background-color) !important;
 }
 
-.chatlist .chat-item-wrap {
-  background-color: #000000 !important;
+body.blackhole-theme .chatlist .chat-item-wrap {
+  background-color: var(--background-color) !important;
   transition: background-color 0.2s ease-in-out;
 }
 
-.chatlist .chat-item-wrap:hover {
-  background-color: #0a0a0a !important;
+body.blackhole-theme .chatlist .chat-item-wrap:hover {
+  background-color: var(--light-gray-color) !important;
 }
 
-.chatlist .chat-item-wrap.active {
-  background-color: #1a1a1a !important;
+body.blackhole-theme .chatlist .chat-item-wrap.active {
+  background-color: var(--primary-color) !important;
 }
 
-.chat-item-title, .chat-item-last-message, .chat-item-date {
-  color: #e0e0e0 !important;
+body.blackhole-theme .chat-item-title, 
+body.blackhole-theme .chat-item-last-message, 
+body.blackhole-theme .chat-item-date {
+  color: var(--text-color) !important;
 }
 
-.unread-badge {
-  background-color: #5e35b1 !important;
-  color: #ffffff !important;
+body.blackhole-theme .unread-badge {
+  background-color: var(--accent-color) !important;
+  color: var(--white-color) !important;
   transform: scale(1);
   transition: transform 0.2s ease;
 }
 
-.unread-badge:hover {
+body.blackhole-theme .unread-badge:hover {
   transform: scale(1.1);
 }
 
 /* Messages */
-.Message .message-bubble {
+body.blackhole-theme .Message .message-bubble {
   border-radius: 16px !important;
   animation: message-appear 0.3s ease-out;
 }
@@ -110,128 +132,250 @@ body.blackhole-theme-loaded {
   }
 }
 
-.Message.own .message-bubble {
-  background: linear-gradient(45deg, #4b0082, #5e35b1) !important;
-  color: #ffffff !important;
+body.blackhole-theme .Message.own .message-bubble {
+  background: linear-gradient(45deg, var(--secondary-accent-color), var(--accent-color)) !important;
+  color: var(--white-color) !important;
 }
 
-.Message:not(.own) .message-bubble {
-  background-color: #1a1a1a !important;
-  color: #e0e0e0 !important;
+body.blackhole-theme .Message:not(.own) .message-bubble {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color) !important;
 }
 
-.Message a {
-  color: #8a2be2 !important;
+body.blackhole-theme .Message a {
+  color: var(--link-color) !important;
   text-decoration: none !important;
   transition: color 0.2s ease;
 }
 
-.Message a:hover {
-  color: #9932cc !important;
+body.blackhole-theme .Message a:hover {
+  color: var(--link-hover-color) !important;
   text-decoration: underline !important;
 }
 
 /* Composer */
-.Composer {
-  background-color: #1a1a1a !important;
-  border-top: 1px solid #2a2a2a !important;
+body.blackhole-theme .Composer {
+  background-color: var(--primary-color) !important;
+  border-top: 1px solid var(--medium-gray-color) !important;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.input-message-field {
-  background-color: #0a0a0a !important;
-  color: #e0e0e0 !important;
-  border: 1px solid #2a2a2a !important;
+body.blackhole-theme .input-message-field {
+  background-color: var(--light-gray-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--medium-gray-color) !important;
   border-radius: 18px !important;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.input-message-field:focus {
-  border-color: #5e35b1 !important;
+body.blackhole-theme .input-message-field:focus {
+  border-color: var(--accent-color) !important;
   box-shadow: 0 0 5px rgba(94, 53, 177, 0.5) !important;
 }
 
 /* Buttons */
-.btn-icon, .btn-primary, .btn-secondary {
-  background-color: #4b0082 !important;
-  color: #ffffff !important;
+body.blackhole-theme .btn-icon, 
+body.blackhole-theme .btn-primary, 
+body.blackhole-theme .btn-secondary {
+  background-color: var(--secondary-accent-color) !important;
+  color: var(--white-color) !important;
   border-radius: 50% !important;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.btn-icon:hover, .btn-primary:hover, .btn-secondary:hover {
-  background-color: #5e35b1 !important;
+body.blackhole-theme .btn-icon:hover, 
+body.blackhole-theme .btn-primary:hover, 
+body.blackhole-theme .btn-secondary:hover {
+  background-color: var(--accent-color) !important;
   transform: translateY(-2px);
 }
 
-.btn-icon:active, .btn-primary:active, .btn-secondary:active {
+body.blackhole-theme .btn-icon:active, 
+body.blackhole-theme .btn-primary:active, 
+body.blackhole-theme .btn-secondary:active {
   transform: translateY(0);
 }
 
 /* Modals and Popups */
-.modal-container, .popup-container {
-  background-color: #1a1a1a !important;
-  color: #e0e0e0 !important;
+body.blackhole-theme .modal-container, 
+body.blackhole-theme .popup-container {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color) !important;
   border-radius: 12px !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Menus */
-.context-menu, .dropdown-menu {
-  background-color: #1a1a1a !important;
-  border: 1px solid #2a2a2a !important;
+body.blackhole-theme .context-menu, 
+body.blackhole-theme .dropdown-menu {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--medium-gray-color) !important;
   border-radius: 8px !important;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
-.context-menu-item:hover, .dropdown-menu-item:hover {
-  background-color: #2a2a2a !important;
+body.blackhole-theme .context-menu-item:hover, 
+body.blackhole-theme .dropdown-menu-item:hover {
+  background-color: var(--medium-gray-color) !important;
 }
 
 /* Settings */
-.settings-panel {
-  background-color: #0a0a0a !important;
+body.blackhole-theme .settings-panel {
+  background-color: var(--light-gray-color) !important;
 }
 
 /* Search */
-.search-input {
-  background-color: #1a1a1a !important;
-  color: #e0e0e0 !important;
-  border: 1px solid #2a2a2a !important;
+body.blackhole-theme .search-input {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--medium-gray-color) !important;
   border-radius: 20px !important;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.search-input:focus {
-  border-color: #5e35b1 !important;
+body.blackhole-theme .search-input:focus {
+  border-color: var(--accent-color) !important;
   box-shadow: 0 0 5px rgba(94, 53, 177, 0.5) !important;
 }
 
 /* Other Elements */
-svg {
+body.blackhole-theme svg {
   filter: brightness(0.9) invert(0.15);
   transition: filter 0.3s ease;
 }
 
-.icon-color-primary svg {
+body.blackhole-theme .icon-color-primary svg {
   filter: brightness(1.5) invert(0.1);
 }
 
-::-webkit-scrollbar {
+body.blackhole-theme ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
+body.blackhole-theme ::-webkit-scrollbar-track {
+  background: var(--light-gray-color);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #333333;
+body.blackhole-theme ::-webkit-scrollbar-thumb {
+  background: var(--dark-gray-color);
   border-radius: 4px;
   transition: background-color 0.2s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
+body.blackhole-theme ::-webkit-scrollbar-thumb:hover {
   background: #555555;
+}
+
+/* Dynamic Styling for Media */
+body.blackhole-theme .Message .media-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+body.blackhole-theme .Message .media-container img:hover {
+  transform: scale(1.05);
+}
+
+/* Additional UI Polish */
+body.blackhole-theme .chat-info-container, 
+body.blackhole-theme .chat-header {
+  background-color: var(--primary-color) !important;
+  border-bottom: 1px solid var(--medium-gray-color) !important;
+}
+
+body.blackhole-theme .chat-info-title, 
+body.blackhole-theme .chat-header-title {
+  color: var(--text-color) !important;
+}
+
+body.blackhole-theme .chat-info-subtitle, 
+body.blackhole-theme .chat-header-subtitle {
+  color: #b0b0b0 !important;
+}
+
+body.blackhole-theme .profile-avatar {
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+body.blackhole-theme .profile-avatar:hover {
+  transform: scale(1.1);
+}
+
+body.blackhole-theme .btn-send {
+  background-color: var(--accent-color) !important;
+  color: var(--white-color) !important;
+  border-radius: 50% !important;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+body.blackhole-theme .btn-send:hover {
+  background-color: #673ab7 !important;
+  transform: scale(1.1);
+}
+
+body.blackhole-theme .btn-send:active {
+  transform: scale(1);
+}
+
+body.blackhole-theme .sticker-container {
+  background-color: transparent !important;
+}
+
+body.blackhole-theme .sticker-container img {
+  transition: transform 0.2s ease;
+}
+
+body.blackhole-theme .sticker-container img:hover {
+  transform: scale(1.1);
+}
+
+.blackhole-theme .icon-search,
+.blackhole-theme .icon-hamb,
+.blackhole-theme .icon-more,
+.blackhole-theme .icon-back,
+.blackhole-theme .icon-close,
+.blackhole-theme .icon-attach,
+.blackhole-theme .icon-send,
+.blackhole-theme .icon-bot,
+.blackhole-theme .icon-channel,
+.blackhole-theme .icon-group,
+.blackhole-theme .icon-user,
+.blackhole-theme .icon-muted,
+.blackhole-theme .icon-verified,
+.blackhole-theme .icon-read,
+.blackhole-theme .icon-unread,
+.blackhole-theme .icon-check,
+.blackhole-theme .icon-checks,
+.blackhole-theme .icon-clock,
+.blackhole-theme .icon-seen,
+.blackhole-theme .icon-delivered,
+.blackhole-theme .icon-pin,
+.blackhole-theme .icon-reply,
+.blackhole-theme .icon-forward,
+.blackhole-theme .icon-edit,
+.blackhole-theme .icon-delete,
+.blackhole-theme .icon-copy,
+.blackhole-theme .icon-select,
+.blackhole-theme .icon-download,
+.blackhole-theme .icon-upload,
+.blackhole-theme .icon-call,
+.blackhole-theme .icon-video-call,
+.blackhole-theme .icon-voice-message,
+.blackhole-theme .icon-gif,
+.blackhole-theme .icon-sticker,
+.blackhole-theme .icon-emoji,
+.blackhole-theme .icon-settings,
+.blackhole-theme .icon-contacts,
+.blackhole-theme .icon-archive,
+.blackhole-theme .icon-saved-messages,
+.blackhole-theme .icon-new-group,
+.blackhole-theme .icon-new-channel,
+.blackhole-theme .icon-new-private-chat,
+.blackhole-theme .icon-night-mode,
+.blackhole-theme .icon-logout {
+    color: var(--text-color) !important;
 }

@@ -9,6 +9,15 @@
 
 console.log("Telegram Blackhole Theme: content.js loaded.");
 
+function applyColors(colors) {
+  const root = document.documentElement;
+  root.style.setProperty('--background-color', colors.backgroundColor);
+  root.style.setProperty('--text-color', colors.textColor);
+  root.style.setProperty('--primary-color', colors.primaryColor);
+  root.style.setProperty('--accent-color', colors.accentColor);
+  // Add other colors as needed
+}
+
 function toggleTheme(enable) {
   document.body.classList.toggle('blackhole-theme', enable);
   if (enable) {
@@ -66,11 +75,17 @@ function waitForElement(selector, callback, timeout = 10000) {
 chrome.runtime.onMessage.addListener((message) => {
   if (message.command === 'toggleTheme') {
     toggleTheme(message.enable);
+  } else if (message.command === 'applyColors') {
+    applyColors(message.colors);
   }
 });
 
-chrome.storage.sync.get('themeEnabled', (data) => {
-  toggleTheme(data.themeEnabled !== false);
+chrome.storage.sync.get(['themeEnabled', 'customColors'], (data) => {
+  const themeEnabled = data.themeEnabled !== false;
+  toggleTheme(themeEnabled);
+  if (themeEnabled && data.customColors) {
+    applyColors(data.customColors);
+  }
 });
 
 setTimeout(applyDynamicStyling, 500);
@@ -87,7 +102,7 @@ waitForElement('.Transitionable.chat-container', (chatContainer) => {
     }
   });
 
-  observer.observe(chatContainer, {
+  observer.observe(chatContainer, { 
     childList: true,
     subtree: true
   });

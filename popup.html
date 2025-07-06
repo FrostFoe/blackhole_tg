@@ -7,6 +7,28 @@
   <h1>Blackhole Theme</h1>
   <p>This extension applies a dark theme to Telegram Web.</p>
   <button id="toggleTheme"></button>
+
+  <div class="color-controls">
+    <h2>Customize Colors</h2>
+    <div class="color-picker">
+      <label for="backgroundColor">Background</label>
+      <input type="color" id="backgroundColor" value="#000000">
+    </div>
+    <div class="color-picker">
+      <label for="textColor">Text</label>
+      <input type="color" id="textColor" value="#e0e0e0">
+    </div>
+    <div class="color-picker">
+        <label for="primaryColor">Primary</label>
+        <input type="color" id="primaryColor" value="#1a1a1a">
+    </div>
+    <div class="color-picker">
+      <label for="accentColor">Accent</label>
+      <input type="color" id="accentColor" value="#5e35b1">
+    </div>
+    <button id="resetColors">Reset to Default</button>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html>
