@@ -11,6 +11,9 @@ console.log("Telegram Blackhole Theme: content.js loaded.");
 
 function toggleTheme(enable) {
   document.body.classList.toggle('blackhole-theme', enable);
+  if (enable) {
+    document.body.classList.add('blackhole-theme-loaded');
+  }
   console.log(`Telegram Blackhole Theme: Theme ${enable ? 'enabled' : 'disabled'}.`);
 }
 

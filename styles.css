@@ -3,284 +3,235 @@
  * styles.css
  *
  * This stylesheet overrides the default Telegram Web styles
- * to create an immersive, ultra-dark "blackhole" theme.
- * It aims for comprehensive coverage and cross-browser compatibility.
+ * to create an immersive, ultra-dark "blackhole" theme with smooth animations.
  */
 
-body.blackhole-theme,
-body.blackhole-theme #page-container,
-body.blackhole-theme #page-wrap,
-body.blackhole-theme .app-container {
+/* General Body and App Container */
+body, .whole, .app-container {
   background-color: #000000 !important;
-  color: #e0e0e0;
+  color: #e0e0e0 !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.blackhole-theme * {
-  color: inherit;
+/* Fade-in animation for the theme */
+body.blackhole-theme-loaded {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-body.blackhole-theme .Transitionable.chats-container {
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Authentication Pages */
+#auth-pages {
   background-color: #000000 !important;
 }
 
-body.blackhole-theme .Transitionable.chat-container {
+.auth-pages__container {
+  background-color: #0a0a0a !important;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.auth-image .sign-logo {
+  fill: #e0e0e0 !important;
+  transition: fill 0.3s ease;
+}
+
+/* Main Layout */
+#main-columns {
+  background-color: #000000 !important;
+}
+
+.sidebar-left-common, .sidebar-left, .sidebar-right {
+  background-color: #000000 !important;
+  border-color: #1a1a1a !important;
+  transition: background-color 0.3s ease;
+}
+
+#column-center {
   background-color: #0a0a0a !important;
 }
 
-body.blackhole-theme .chatlist {
-  background-color: #000000 !important;
-  border-right: 1px solid #1a1a1a !important;
-}
-
-body.blackhole-theme .chat-panel {
-  background-color: #0a0a0a !important;
-}
-
-body.blackhole-theme .header-wrap,
-body.blackhole-theme .chat-panel-header,
-body.blackhole-theme .Composer {
+.sidebar-header {
   background-color: #1a1a1a !important;
   border-bottom: 1px solid #2a2a2a !important;
-  box-shadow: none !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-body.blackhole-theme .Composer .input-message-field {
-  background-color: #0a0a0a !important;
-  color: #e0e0e0 !important;
-  border-radius: 10px !important;
-  border: 1px solid #2a2a2a !important;
-}
-
-body.blackhole-theme .Composer .input-message-field::placeholder {
-  color: #666666 !important;
-}
-
-body.blackhole-theme ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-body.blackhole-theme ::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-body.blackhole-theme ::-webkit-scrollbar-thumb {
-  background: #333333;
-  border-radius: 4px;
-}
-
-body.blackhole-theme ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
-}
-
-body.blackhole-theme {
-  scrollbar-color: #333333 #0a0a0a;
-  scrollbar-width: thin;
-}
-
-body.blackhole-theme .chatlist .chat-item-wrap {
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
+/* Chat List */
+.chatlist-container {
   background-color: #000000 !important;
 }
 
-body.blackhole-theme .chatlist .chat-item-wrap:hover {
+.chatlist .chat-item-wrap {
+  background-color: #000000 !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.chatlist .chat-item-wrap:hover {
   background-color: #0a0a0a !important;
 }
 
-body.blackhole-theme .chatlist .chat-item-wrap.active {
+.chatlist .chat-item-wrap.active {
   background-color: #1a1a1a !important;
 }
 
-body.blackhole-theme .chat-item-title,
-body.blackhole-theme .chat-item-last-message,
-body.blackhole-theme .chat-item-date {
+.chat-item-title, .chat-item-last-message, .chat-item-date {
   color: #e0e0e0 !important;
 }
 
-body.blackhole-theme .unread-badge {
+.unread-badge {
   background-color: #5e35b1 !important;
   color: #ffffff !important;
-  font-weight: bold !important;
-  padding: 2px 7px !important;
-  border-radius: 10px !important;
-  font-size: 0.8em !important;
+  transform: scale(1);
+  transition: transform 0.2s ease;
 }
 
-body.blackhole-theme .Message .message-bubble {
-  padding: 8px 12px !important;
+.unread-badge:hover {
+  transform: scale(1.1);
+}
+
+/* Messages */
+.Message .message-bubble {
   border-radius: 16px !important;
-  margin-bottom: 4px !important;
-  line-height: 1.5 !important;
+  animation: message-appear 0.3s ease-out;
 }
 
-body.blackhole-theme .Message.own .message-bubble {
-  background-color: #4b0082 !important;
+@keyframes message-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Message.own .message-bubble {
+  background: linear-gradient(45deg, #4b0082, #5e35b1) !important;
   color: #ffffff !important;
 }
 
-body.blackhole-theme .Message:not(.own) .message-bubble {
+.Message:not(.own) .message-bubble {
   background-color: #1a1a1a !important;
   color: #e0e0e0 !important;
 }
 
-body.blackhole-theme .Message .text-content {
-  color: inherit !important;
+.Message a {
+  color: #8a2be2 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
 }
 
-body.blackhole-theme .Message a {
-  color: #8a2be2 !important;
+.Message a:hover {
+  color: #9932cc !important;
   text-decoration: underline !important;
 }
 
-body.blackhole-theme .Message .message-info {
-  color: #999999 !important;
+/* Composer */
+.Composer {
+  background-color: #1a1a1a !important;
+  border-top: 1px solid #2a2a2a !important;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-body.blackhole-theme .Message.service .message-bubble {
-  background-color: transparent !important;
-  color: #999999 !important;
-  text-align: center;
-  font-style: italic;
+.input-message-field {
+  background-color: #0a0a0a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #2a2a2a !important;
+  border-radius: 18px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-body.blackhole-theme .Message .forwarded-header {
-  color: #b0b0b0 !important;
+.input-message-field:focus {
+  border-color: #5e35b1 !important;
+  box-shadow: 0 0 5px rgba(94, 53, 177, 0.5) !important;
 }
 
-body.blackhole-theme .Composer button,
-body.blackhole-theme .Composer .btn-icon,
-body.blackhole-theme .btn-primary,
-body.blackhole-theme .btn-secondary {
+/* Buttons */
+.btn-icon, .btn-primary, .btn-secondary {
   background-color: #4b0082 !important;
   color: #ffffff !important;
   border-radius: 50% !important;
-  transition: background-color 0.2s ease !important;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-body.blackhole-theme .Composer button:hover,
-body.blackhole-theme .Composer .btn-icon:hover,
-body.blackhole-theme .btn-primary:hover,
-body.blackhole-theme .btn-secondary:hover {
+.btn-icon:hover, .btn-primary:hover, .btn-secondary:hover {
   background-color: #5e35b1 !important;
+  transform: translateY(-2px);
 }
 
-body.blackhole-theme svg {
-  filter: brightness(0.9) invert(0.15);
+.btn-icon:active, .btn-primary:active, .btn-secondary:active {
+  transform: translateY(0);
 }
 
-body.blackhole-theme .icon-color-primary svg {
-  filter: brightness(1.5) invert(0.1);
-}
-
-body.blackhole-theme .modal-container,
-body.blackhole-theme .popup-container,
-body.blackhole-theme .modal-content,
-body.blackhole-theme .popup-content {
+/* Modals and Popups */
+.modal-container, .popup-container {
   background-color: #1a1a1a !important;
   color: #e0e0e0 !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
-body.blackhole-theme .modal-header,
-body.blackhole-theme .popup-header {
-  background-color: #2a2a2a !important;
-  border-bottom: 1px solid #3a3a3a !important;
-  color: #e0e0e0 !important;
-}
-
-body.blackhole-theme .modal-footer,
-body.blackhole-theme .popup-footer {
-  background-color: #2a2a2a !important;
-  border-top: 1px solid #3a3a3a !important;
-}
-
-body.blackhole-theme .modal-container input[type="text"],
-body.blackhole-theme .modal-container input[type="password"],
-body.blackhole-theme .modal-container textarea {
-  background-color: #0a0a0a !important;
-  color: #e0e0e0 !important;
-  border: 1px solid #2a2a2a !important;
-  border-radius: 5px !important;
-}
-
-body.blackhole-theme .Message .media-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px !important;
-}
-
-body.blackhole-theme .avatar-image,
-body.blackhole-theme .profile-avatar {
-  border-radius: 50% !important;
-}
-
-body.blackhole-theme .context-menu,
-body.blackhole-theme .dropdown-menu {
+/* Menus */
+.context-menu, .dropdown-menu {
   background-color: #1a1a1a !important;
   border: 1px solid #2a2a2a !important;
   border-radius: 8px !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
-body.blackhole-theme .context-menu-item,
-body.blackhole-theme .dropdown-menu-item {
-  color: #e0e0e0 !important;
-  padding: 8px 12px !important;
-}
-
-body.blackhole-theme .context-menu-item:hover,
-body.blackhole-theme .dropdown-menu-item:hover {
+.context-menu-item:hover, .dropdown-menu-item:hover {
   background-color: #2a2a2a !important;
 }
 
-body.blackhole-theme .settings-panel {
+/* Settings */
+.settings-panel {
   background-color: #0a0a0a !important;
-  color: #e0e0e0 !important;
 }
 
-body.blackhole-theme .settings-panel-header {
-  background-color: #1a1a1a !important;
-  border-bottom: 1px solid #2a2a2a !important;
-}
-
-body.blackhole-theme .settings-panel-section {
-  border-bottom: 1px solid #1a1a1a !important;
-}
-
-body.blackhole-theme .settings-panel-label {
-  color: #b0b0b0 !important;
-}
-
-body.blackhole-theme .settings-panel-value {
-  color: #e0e0e0 !important;
-}
-
-body.blackhole-theme .search-input {
+/* Search */
+.search-input {
   background-color: #1a1a1a !important;
   color: #e0e0e0 !important;
   border: 1px solid #2a2a2a !important;
   border-radius: 20px !important;
-  padding: 8px 12px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-body.blackhole-theme .search-input::placeholder {
-  color: #666666 !important;
+.search-input:focus {
+  border-color: #5e35b1 !important;
+  box-shadow: 0 0 5px rgba(94, 53, 177, 0.5) !important;
 }
 
-body.blackhole-theme .emoji-panel,
-body.blackhole-theme .sticker-panel {
-  background-color: #1a1a1a !important;
-  border-top: 1px solid #2a2a2a !important;
+/* Other Elements */
+svg {
+  filter: brightness(0.9) invert(0.15);
+  transition: filter 0.3s ease;
 }
 
-body.blackhole-theme .emoji-category-button,
-body.blackhole-theme .sticker-set-button {
-  filter: invert(0.9) !important;
+.icon-color-primary svg {
+  filter: brightness(1.5) invert(0.1);
 }
 
-body.blackhole-theme .emoji-category-button.active,
-body.blackhole-theme .sticker-set-button.active {
-  background-color: #2a2a2a !important;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
 }
